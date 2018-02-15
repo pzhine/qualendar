@@ -1,0 +1,26 @@
+@import '../../shared-styles/index';
+
+.gridEvent {
+  font-family: $body-font;
+  font-size: 0.8em;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+
+  &:before {
+    content: '';
+    display: block;
+    background: $event-bullet-color;
+    width: 0.6em;
+    height: 0.6em;
+    border-radius: 1em;
+    margin-right: 3px;
+  }
+
+  &.isAllDay {
+    &:before {
+      display: none;
+    }
+    background: $allDay-background-color;
+  }
+}
