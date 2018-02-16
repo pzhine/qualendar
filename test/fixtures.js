@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-const dates = [
+export const dates = [
   {
     year: 2018,
     month: 3,
@@ -19,6 +19,16 @@ export default {
       duration: 2.75 * 60,
       title: 'Vuelo a Paris',
       location: 'Barcelona BCN',
+    },
+    spanDays: {
+      id: 1,
+      startsAt: moment({
+        ...dates[0],
+        hour: 20,
+      }).valueOf(),
+      duration: 8 * 60,
+      title: 'Vuelo durante la noche',
+      location: 'New York JFK',
     },
     allDay: {
       id: 2,

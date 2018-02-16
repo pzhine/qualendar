@@ -1,0 +1,41 @@
+@import '../../shared-styles/index';
+
+.viewEvent {
+  border-top: 1px solid $border-color-light;
+  padding-top: 20px;
+  margin-bottom: 24px;
+  color: $body-color;
+  position: relative;
+
+  .time {
+    font-family: $bold-font;
+    font-size: $font-size-medium;
+    margin-bottom: 14px;
+  }
+
+  .title {
+    font-family: $light-font;
+    font-size: $font-size-xl;
+    margin-bottom: 14px;
+  }
+
+  .location {
+    font-family: $light-font;
+    font-size: $font-size-large;
+  }
+
+  .edit {
+    position: absolute;
+    right: 0;
+    top: 13px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+
+      path {
+        fill: $link-color-light;
+      }
+    }
+  }
+}

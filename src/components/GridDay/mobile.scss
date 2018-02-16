@@ -13,7 +13,7 @@
   .date {
     position: relative;
     align-self: center;
-    font-size: 0.9em;
+    font-size: $font-size-small;
 
     &.isToday {
       &:before {
