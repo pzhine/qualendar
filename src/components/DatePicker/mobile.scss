@@ -1,0 +1,47 @@
+.datePicker {
+  display: flex;
+  align-items: flex-end;
+
+  .date {
+    font-size: 36px;
+    color: $body-color;
+    font-family: $light-font;
+    flex-grow: 1;
+  }
+
+  .nav {
+    display: flex;
+    position: relative;
+    bottom: 6px;
+
+    .next, .prev {
+      display: block;
+      height: 18px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    .next {
+      transform: rotate(180deg)
+    }
+  }
+
+  @include mobile {
+    .date {
+      text-transform: lowercase;
+    }
+    .nav {
+      position: fixed;
+      z-index: 100;
+      width: 100%;
+      padding: 0 24px;
+      left: 0;
+      bottom: 0;
+      height: 75px;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

@@ -11,7 +11,7 @@ const today = moment().valueOf()
 
 const someDay = moment({
   year: 2018,
-  month: 4,
+  month: 3,
   day: 10,
 }).valueOf()
 
@@ -53,7 +53,6 @@ it('should render some events', () => {
     date: someDay,
     events: [fixtures.events.allDay, fixtures.events.specificDuration],
   }
-  // console.log('MQVALUES', wrapper(params).find('MediaQuery').props())
   expect(wrapper(params).find('GridEvent').length).toBe(2)
 })
 

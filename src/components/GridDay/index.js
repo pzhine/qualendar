@@ -5,15 +5,15 @@ import cx from 'classnames'
 import moment from 'moment'
 import styles from './styles.scss'
 import config from '../../content/config.json'
+import { datePath } from '../../lib/dates'
 
 import GridEvent from '../GridEvent'
 
 const GridDay = ({ events, date }) => {
   const d = moment(date)
-  const datePath = `/m/${d.year()}/${d.month()}/${d.date()}`
   const actionPath = events && events.length ? '' : '/new'
   return (
-    <Link className={styles.gridDay} to={datePath + actionPath}>
+    <Link className={styles.gridDay} to={`/m/${datePath(d)}${actionPath}`}>
       <div
         className={cx(styles.date, {
           [styles.isToday]: d.isSame(moment(), 'day'),

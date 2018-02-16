@@ -3,7 +3,7 @@ import moment from 'moment'
 const dates = [
   {
     year: 2018,
-    month: 4,
+    month: 3,
     day: 10,
   },
 ]
@@ -22,7 +22,7 @@ export default {
     },
     allDay: {
       id: 2,
-      startsAt: moment({ year: 2018, month: 4, day: 13 }).valueOf(),
+      startsAt: moment({ year: 2018, month: 3, day: 13 }).valueOf(),
       title: "Dad's birthday",
       isAllDay: true,
     },
@@ -39,7 +39,7 @@ export default {
     },
     allDay2: {
       id: 4,
-      startsAt: moment({ year: 2018, month: 4, day: 13 }).valueOf(),
+      startsAt: moment({ year: 2018, month: 3, day: 13 }).valueOf(),
       title: 'Return videotapes',
       isAllDay: true,
     },
