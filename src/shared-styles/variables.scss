@@ -32,8 +32,10 @@ $highlight-secondary-color: #C5D4E6;
 $border-color-light:#C7C7C7;
 $border-color-dark: #5B738F;
 
-$allDay-background-color: $highlight-secondary-color;
+$allDay-background: $highlight-secondary-color;
 $event-bullet-color: $border-color-dark;
 
 $grid-text-color: #000;
 $grid-today-color: $highlight-primary-color;
+$grid-column-head-background: $nav-background;
+$grid-column-head-color: #fff;
