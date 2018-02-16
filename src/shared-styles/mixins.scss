@@ -35,3 +35,11 @@
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
   border-radius: 8px 0 0 0 8px 8px 8px;
 }
+
+@mixin circle($radius, $color) {
+  display: block;
+  width: $radius;
+  height: $radius;
+  border-radius: $radius;
+  background: $color;
+}

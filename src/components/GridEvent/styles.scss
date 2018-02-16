@@ -6,21 +6,25 @@
   padding: 6px 12px;
   display: flex;
   align-items: center;
+  color: $grid-text-color;
 
   &:before {
     content: '';
+    @include circle(0.6em, $event-bullet-color);
     display: block;
-    background: $event-bullet-color;
-    width: 0.6em;
-    height: 0.6em;
-    border-radius: 1em;
     margin-right: 3px;
   }
 
   &.isAllDay {
+    background: $allDay-background-color;
+    margin-top: 4px;
+
     &:before {
       display: none;
     }
-    background: $allDay-background-color;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 }

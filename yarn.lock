@@ -7466,6 +7466,10 @@ react-inspector@^2.2.2:
     babel-runtime "^6.26.0"
     is-dom "^1.0.9"
 
+react-mock-router@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/react-mock-router/-/react-mock-router-1.0.11.tgz#e6a6d43860865f1b9f063a62509bf9c597afc710"
+
 react-modal@^3.1.10:
   version "3.1.13"
   resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.1.13.tgz#9b27e7774e6ecdc255f489487f518eb4361716ab"
