@@ -18,7 +18,7 @@ const someDay = moment({
 const wrapper = ({ events, date, push, width }) => {
   mockResponsive.width = width || 1280
   return mount(
-    <MockRouter push={push} createHref={h => h}>
+    <MockRouter push={push}>
       <GridDay events={events} date={date} />
     </MockRouter>
   )

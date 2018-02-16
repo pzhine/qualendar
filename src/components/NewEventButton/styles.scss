@@ -1,0 +1,16 @@
+@import '../../shared-styles/index';
+
+.newEventButton {
+  @include button;
+  background: $primary-button-background;
+  color: $primary-button-color;
+
+  svg {
+    width: 14px;
+    height: 14px;
+
+    path {
+      fill: $primary-button-color;
+    }
+  }
+}
