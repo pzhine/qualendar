@@ -2,8 +2,9 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import app from './app/reducer'
+import forms from './forms/reducer'
 
-const reducer = combineReducers({ app })
+const reducer = combineReducers({ app, forms })
 const middlewares = [thunk]
 if (process.env.NODE_ENV === 'development') {
   middlewares.push(createLogger())
