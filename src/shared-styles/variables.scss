@@ -52,7 +52,8 @@ $primary-button-color: #fff;
 
 $mobile-footer-height: 75px;
 
-$form-input-text-color: #FFA15A;
+$form-input-placeholder-color: #FFA15A;
+$form-input-label-color: #BFBFBF;
+$form-input-text-color: $body-color;
 $form-input-height: 40px;
 $form-input-font-size: $font-size-large;
-$form-input-label-color: #BFBFBF;

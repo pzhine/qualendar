@@ -1,0 +1,15 @@
+@import '../../shared-styles/index';
+
+.enumInput {
+  .option {
+    margin-right: 20px;
+    font-family: $bold-font;
+    font-size: $form-input-font-size;
+    color: $form-input-label-color;
+    cursor: pointer;
+
+    &.isActive {
+      color: $form-input-text-color;
+    }
+  }
+}
