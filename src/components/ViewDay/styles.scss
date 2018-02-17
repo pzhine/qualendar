@@ -1,13 +1,38 @@
 @import '../../shared-styles/index';
 
-@include mobile {
-  @import './mobile';
-}
-@include tablet {
-  @import './mobile';
-  @import './tablet';
-}
-@include desktop {
-  @import './mobile';
-  @import './tablet';
+.viewDay {
+  .header {
+    display: flex;
+    align-items: center;
+
+    &>* {
+      margin-right: 20px;
+
+      &:first-child {
+        flex-grow: 1;
+      }
+
+      &:last-child {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  @include mobile {
+    .newEventButton {
+      position: fixed;
+      z-index: 100;
+      @include center-both;
+      height: $mobile-footer-height;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      pointer-events: none;
+
+      a {
+        pointer-events: all;
+      }
+    }
+  }
 }
