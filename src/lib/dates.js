@@ -7,3 +7,5 @@ export const datePath = d => {
 }
 
 export const getViewPath = path => path.substr(0, 3)
+
+export const getParentPath = path => path.split('/').slice(0, 4).join('/')

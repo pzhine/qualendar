@@ -39,9 +39,14 @@
       padding: 0 24px;
       left: 0;
       bottom: 0;
-      height: 75px;
+      height: $mobile-footer-height;
       justify-content: space-between;
       align-items: center;
+      pointer-events: none;
+
+      a {
+        pointer-events: all;
+      }
     }
   }
 }
