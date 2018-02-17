@@ -47,9 +47,45 @@
   width: 100px;
   height: 35px;
   border-radius: 4px;
+  cursor: pointer;
   @include center-both;
 
   &:active {
     filter: brightness(0.5);
+  }
+}
+
+@mixin modal-header {
+  .header {
+    display: flex;
+    align-items: center;
+
+    &>* {
+      margin-right: 20px;
+
+      &:first-child {
+        flex-grow: 1;
+      }
+
+      &:last-child {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+@mixin mobile-modal-footer {
+  position: fixed;
+  z-index: 100;
+  @include center-both;
+  height: $mobile-footer-height;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  pointer-events: none;
+
+  a, button {
+    pointer-events: all;
   }
 }

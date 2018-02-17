@@ -49,11 +49,15 @@ $grid-column-head-color: #fff;
 
 $primary-button-background: #4A90E2;
 $primary-button-color: #fff;
+$delete-button-background: #D0021B;
+$delete-button-color: #fff;
 
 $mobile-footer-height: 75px;
+$mobile-footer-background: $body-background;
 
 $form-input-placeholder-color: #FFA15A;
 $form-input-label-color: #BFBFBF;
 $form-input-text-color: $body-color;
 $form-input-height: 40px;
 $form-input-font-size: $font-size-large;
+$form-field-spacing-v: 30px;

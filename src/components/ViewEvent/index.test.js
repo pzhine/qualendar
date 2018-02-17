@@ -20,7 +20,7 @@ const { specificDuration, allDay, spanDays } = fixtures.events
 it('should render the time', () => {
   expect(
     wrapper({ event: specificDuration }).find('.time').first().text()
-  ).toEqual('6:00 am to 8:45 am')
+  ).toEqual('6:30 am to 9:15 am')
 })
 
 it('should render the time and ends at date if we span days', () => {

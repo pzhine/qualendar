@@ -7,6 +7,7 @@
     font-size: $form-input-font-size;
     color: $form-input-label-color;
     cursor: pointer;
+    text-transform: lowercase;
 
     &.isActive {
       color: $form-input-text-color;

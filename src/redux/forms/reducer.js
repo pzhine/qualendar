@@ -1,4 +1,6 @@
-export default function appReducer(state = { fields: {} }, action) {
+import initialState from './initialState'
+
+export default function appReducer(state = initialState, action) {
   switch (action.type) {
     case 'FORM_FIELD_CHANGED': {
       return {

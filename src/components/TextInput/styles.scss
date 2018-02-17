@@ -14,7 +14,7 @@
     width: 100%;
     font-family: $bold-font;
     font-size: $form-input-font-size;
-    color: $form-input-placeholder-color;
+    color: $form-input-text-color;
     height: 1em;
     padding-bottom: 3px;
 
@@ -23,7 +23,6 @@
     }
 
     &:focus, &:valid {
-      color: $form-input-text-color;
 
       &+label {
         color: $form-input-label-color;
@@ -36,12 +35,13 @@
 
   label {
     position: absolute;
-    bottom: 0;
+    bottom: 1px;
     left: 0;
     pointer-events: none;
     font-family: $bold-font;
     font-size: $form-input-font-size;
     transition: all $transition-super-quick $ease;
-    color: $form-input-text-color;
+    color: $form-input-placeholder-color;
+    text-transform: lowercase;
   }
 }

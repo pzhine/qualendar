@@ -4,8 +4,8 @@ import cx from 'classnames'
 import actions from '../../redux/forms/actions'
 import styles from './styles.scss'
 
-const EnumInput = ({ fields, field, options, fieldChanged }) =>
-  <div className={styles.enumInput}>
+const EnumInput = ({ fields, field, options, fieldChanged, className }) =>
+  <div className={cx(styles.enumInput, className)} id={field}>
     {options.map(opt =>
       <button
         key={opt.value}
