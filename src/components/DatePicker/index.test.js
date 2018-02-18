@@ -6,11 +6,11 @@ import moment from 'moment'
 import MockRouter from 'react-mock-router'
 import DatePicker from './'
 
-const wrapper = ({ date, width, push, pathname }) => {
+const wrapper = ({ date, width, pathname }) => {
   mockResponsive.width = width || 1280
   const location = { pathname: pathname || '' }
   return mount(
-    <MockRouter push={push} location={location}>
+    <MockRouter location={location}>
       <DatePicker date={date} />
     </MockRouter>
   )
@@ -36,16 +36,10 @@ it('should render short date on mobile', () => {
   )
 })
 
-it('should redirect to next date on next', () => {
+it('should render a Picker with the correct paths assigned', () => {
   const push = jest.fn()
   const params = { date: someDay, push, pathname: '/m/2018/4/10/new' }
-  wrapper(params).find('.next').first().simulate('click', { button: 0 })
-  expect(push).toBeCalledWith('/m/2018/4/11/new')
-})
-
-it('should redirect to prev date on prev', () => {
-  const push = jest.fn()
-  const params = { date: someDay, push, pathname: '/m/2018/4/10/new' }
-  wrapper(params).find('.prev').first().simulate('click', { button: 0 })
-  expect(push).toBeCalledWith('/m/2018/4/9/new')
+  const component = wrapper(params).find('Picker')
+  expect(component.prop('nextPath')).toEqual('/m/2018/4/11/new')
+  expect(component.prop('prevPath')).toEqual('/m/2018/4/9/new')
 })

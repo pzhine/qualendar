@@ -9,45 +9,9 @@
     flex-grow: 1;
   }
 
-  .nav {
-    display: flex;
-    position: relative;
-    bottom: 6px;
-
-    .next, .prev {
-      display: block;
-      height: 18px;
-
-      svg {
-        width: 18px;
-        height: 18px;
-      }
-    }
-    .next {
-      transform: rotate(180deg)
-    }
-  }
-
   @include mobile {
     .date {
       text-transform: lowercase;
-    }
-    .nav {
-      position: fixed;
-      z-index: 100;
-      width: 100%;
-      padding: 0 24px;
-      left: 0;
-      bottom: 0;
-      height: $mobile-footer-height;
-      background: $mobile-footer-background;
-      justify-content: space-between;
-      align-items: center;
-      pointer-events: none;
-
-      a {
-        pointer-events: all;
-      }
     }
   }
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 import moment from 'moment'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import MediaQuery from 'react-responsive'
 import styles from './styles.scss'
 import config from '../../content/config.json'
 import { datePath } from '../../lib/dates'
-import BackIcon from '../../icons/back.svg'
+import Picker from '../Picker'
 
 const DatePicker = ({ date, location }) => {
   const m = moment(date)
@@ -29,14 +29,7 @@ const DatePicker = ({ date, location }) => {
           {m.format('ddd')}, {m.format('MMM')} {m.format('D')}
         </span>
       </MediaQuery>
-      <div className={styles.nav}>
-        <Link to={prevPath} className={styles.prev}>
-          <BackIcon />
-        </Link>
-        <Link to={nextPath} className={styles.next}>
-          <BackIcon />
-        </Link>
-      </div>
+      <Picker className={styles.nav} prevPath={prevPath} nextPath={nextPath} />
     </div>
   )
 }

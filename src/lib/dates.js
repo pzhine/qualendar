@@ -6,6 +6,11 @@ export const datePath = d => {
   return `${md.format('YYYY')}/${md.format('M')}/${md.format('D')}`
 }
 
+export const monthPath = d => {
+  const md = moment(d)
+  return `/m/${md.format('YYYY')}/${md.format('M')}`
+}
+
 export const getViewPath = path => path.substr(0, 3)
 
 export const getParentPath = path => path.split('/').slice(0, 4).join('/')
