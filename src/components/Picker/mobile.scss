@@ -1,9 +1,9 @@
 .picker {
   display: flex;
+  align-items: center;
 
   .next, .prev {
-    display: block;
-    height: 18px;
+    display: flex;
 
     svg {
       width: 18px;
