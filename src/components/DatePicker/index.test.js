@@ -37,8 +37,7 @@ it('should render short date on mobile', () => {
 })
 
 it('should render a Picker with the correct paths assigned', () => {
-  const push = jest.fn()
-  const params = { date: someDay, push, pathname: '/m/2018/4/10/new' }
+  const params = { date: someDay, pathname: '/m/2018/4/10/new' }
   const component = wrapper(params).find('Picker')
   expect(component.prop('nextPath')).toEqual('/m/2018/4/11/new')
   expect(component.prop('prevPath')).toEqual('/m/2018/4/9/new')

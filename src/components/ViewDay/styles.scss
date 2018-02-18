@@ -5,9 +5,5 @@
 
   @include mobile {
     padding-bottom: $mobile-footer-height * 1.5;
-
-    .newEventButton {
-      @include mobile-modal-footer;
-    }
   }
 }

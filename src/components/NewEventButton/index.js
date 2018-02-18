@@ -10,9 +10,11 @@ const NewEventButton = ({ date, location }) => {
     ? `${viewPath}${datePath(date)}/new`
     : `${viewPath}${datePath(Date.now())}/new`
   return (
-    <Link to={linkPath} className={styles.newEventButton}>
-      <AddIcon />
-    </Link>
+    <div className={styles.newEventButton}>
+      <Link to={linkPath} className={styles.newEventButton}>
+        <AddIcon />
+      </Link>
+    </div>
   )
 }
 

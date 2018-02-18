@@ -10,9 +10,7 @@ const ViewDay = ({ date, events }) =>
   <div className={styles.viewDay}>
     <div className={styles.header}>
       <DatePicker date={date} />
-      <div className={styles.newEventButton}>
-        <NewEventButton date={date} />
-      </div>
+      <NewEventButton date={date} />
       <CloseButton />
     </div>
     <div className={styles.events}>

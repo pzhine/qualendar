@@ -1,9 +1,10 @@
 @import '../../shared-styles/index';
 
-.newEventButton {
+.newEventButton a {
   @include button;
   background: $primary-button-background;
   color: $primary-button-color;
+  position: relative;
 
   svg {
     width: 14px;
@@ -12,5 +13,11 @@
     path {
       fill: $primary-button-color;
     }
+  }
+}
+
+@include mobile {
+  .newEventButton {
+    @include mobile-modal-footer;
   }
 }

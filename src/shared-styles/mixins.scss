@@ -12,6 +12,12 @@
   }
 }
 
+@mixin tabletAndUp {
+  @media (min-width: #{$mobile-width + 1px}) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media (min-width: #{$desktop-width + 1}) {
     @content;
@@ -61,7 +67,9 @@
     align-items: center;
 
     &>* {
-      margin-right: 20px;
+      @include tabletAndUp {
+        margin-right: 20px;
+      }
 
       &:first-child {
         flex-grow: 1;
