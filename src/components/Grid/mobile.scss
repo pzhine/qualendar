@@ -1,0 +1,40 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .header {
+    height: 30px;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .body, .row {
+    height: 100%;
+    overflow: hidden;
+    flex-grow: 1;
+    display: flex;
+  }
+
+  .body {
+    flex-direction: column;
+  }
+
+  .row {
+    flex-basis: 0;
+    border-bottom: 1px solid $grid-line-color;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .header>*, .row>* {
+    border-right: 1px solid $grid-line-color;
+    flex-basis: (100%/7);
+    max-width: (100%/7);
+    overflow: hidden;
+    &:last-child {
+      border-right: none;
+    }
+  }
+}

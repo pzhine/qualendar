@@ -43,3 +43,6 @@ storiesOf('GridDay', module)
   .add('multiple events today', () =>
     <GridDay date={today} events={multipleEvents} />
   )
+  .add('multiple events off month', () =>
+    <GridDay date={tomorrow} events={multipleEvents} isOffMonth />
+  )

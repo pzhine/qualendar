@@ -6,9 +6,14 @@ export const dates = [
     month: 3,
     day: 10,
   },
+  {
+    year: 2018,
+    month: 3,
+    day: 19,
+  },
 ]
 
-export default {
+const fixtures = {
   events: {
     specificDuration: {
       id: 1,
@@ -43,7 +48,7 @@ export default {
       id: 3,
       isAllDay: false,
       startsAt: moment({
-        ...dates[0],
+        ...dates[1],
         hour: 11,
         minute: 45,
       }).valueOf(),
@@ -53,12 +58,13 @@ export default {
     },
     allDay2: {
       id: 4,
-      startsAt: moment({ year: 2018, month: 3, day: 13 }).valueOf(),
+      startsAt: moment({ year: 2018, month: 3, day: 24 }).valueOf(),
+      duration: 3,
       title: 'Return videotapes',
       isAllDay: true,
     },
     newEvent: {
-      startsAt: moment({ year: 2018, month: 3, day: 13 }).valueOf(),
+      startsAt: moment({ year: 2018, month: 3, day: 22 }).valueOf(),
     },
   },
   states: {
@@ -111,3 +117,14 @@ export default {
     },
   },
 }
+
+export const april2018 = {
+  10: [fixtures.events.specificDuration, fixtures.events.spanDays],
+  13: [fixtures.events.allDay],
+  19: [fixtures.events.specificDuration2],
+  24: [fixtures.events.allDay2],
+  25: [{ ...fixtures.events.allDay2, startedOn: moment('2018-04-24').valueOf }],
+  26: [{ ...fixtures.events.allDay2, startedOn: moment('2018-04-24').valueOf }],
+}
+
+export default fixtures

@@ -3,28 +3,34 @@
 .gridEvent {
   font-family: $body-font;
   font-size: $font-size-small;
-  padding: 6px 12px;
+  padding: 4px 12px;
   display: flex;
   align-items: center;
   color: $grid-text-color;
 
+  span {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
   &:before {
     content: '';
-    @include circle(0.6em, $event-bullet-color);
+    @include circle(6px, $event-bullet-color);
     display: block;
     margin-right: 3px;
+    flex-shrink: 0;
   }
 
   &.isAllDay {
     background: $allDay-background;
-    margin-top: 4px;
+    margin-bottom: 4px;
 
     &:before {
       display: none;
     }
 
-    &:first-child {
-      margin-top: 0;
+    &.spansMultiple {
+      position: absolute;
     }
   }
 }

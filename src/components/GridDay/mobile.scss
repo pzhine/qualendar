@@ -10,6 +10,15 @@
     text-decoration: none;
   }
 
+  &.isOffMonth {
+    background: $grid-day-off-month-background;
+    
+    .date, .events {
+      filter: $grid-day-off-month-filter;
+      opacity: $grid-day-off-month-opacity;
+    }
+  }
+
   .date {
     position: relative;
     align-self: center;

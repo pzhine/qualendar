@@ -9,11 +9,14 @@ import { datePath } from '../../lib/dates'
 
 import GridEvent from '../GridEvent'
 
-const GridDay = ({ events, date }) => {
+const GridDay = ({ events, date, isOffMonth }) => {
   const d = moment(date)
   const actionPath = events && events.length ? '' : '/new'
   return (
-    <Link className={styles.gridDay} to={`/m/${datePath(d)}${actionPath}`}>
+    <Link
+      to={`/m/${datePath(d)}${actionPath}`}
+      className={cx(styles.gridDay, { [styles.isOffMonth]: isOffMonth })}
+    >
       <div
         className={cx(styles.date, {
           [styles.isToday]: d.isSame(moment(), 'day'),

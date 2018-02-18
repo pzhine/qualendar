@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import moment from 'moment'
 import GridEvent from './'
 import fixtures from '../../../test/fixtures'
 
@@ -21,6 +22,15 @@ it('renders an all day event', () => {
       .find('span')
       .text()
   ).toEqual("Dad's birthday")
+})
+
+it('renders an all day event that spans multiple days', () => {
+  expect(
+    wrapper({ event: fixtures.events.allDay2 })
+      .find('.isAllDay.spansMultiple')
+      .find('span')
+      .text()
+  ).toEqual('Return videotapes')
 })
 
 it('renders className from props', () => {
