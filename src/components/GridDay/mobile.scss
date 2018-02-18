@@ -12,7 +12,7 @@
 
   &.isOffMonth {
     background: $grid-day-off-month-background;
-    
+
     .date, .events {
       filter: $grid-day-off-month-filter;
       opacity: $grid-day-off-month-opacity;
@@ -23,15 +23,19 @@
     position: relative;
     align-self: center;
     font-size: $font-size-small;
+    z-index: 10;
+    width: 20px;
+    text-align: center;
 
     &.isToday {
       &:before {
         content: '';
-        @include circle(1.7em, $grid-today-color);
+        @include circle(24px, $grid-today-color);
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate3d(-50%, -50%, 0);
+        margin-left: 1%;
         z-index: -1;
       }
     }
