@@ -93,6 +93,7 @@
 
     .save {
       @include mobile-modal-footer;
+      z-index: 150;
     }
   }
 }
