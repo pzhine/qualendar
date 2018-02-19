@@ -47,6 +47,7 @@ const fixtures = {
       id: 2,
       startsAt: moment({ year: 2018, month: 3, day: 13 }).valueOf(),
       title: "Dad's birthday",
+      duration: 1,
       isAllDay: true,
     },
     specificDuration2: {
@@ -66,6 +67,7 @@ const fixtures = {
       startsAt: moment({ year: 2018, month: 3, day: 24 }).valueOf(),
       duration: 3,
       title: 'Return videotapes',
+      location: 'Blockbuster',
       isAllDay: true,
     },
     newEvent: {
@@ -127,13 +129,27 @@ const fixtures = {
       forms: {
         fields: {
           'event.isAllDay': true,
-          'event.startsAtHours': null,
-          'event.startsAtMinutes': null,
-          'event.startsAtMeridian': 'am',
+          'event.startsAtHours': '',
+          'event.startsAtMinutes': '',
+          'event.startsAtMeridian': '',
           'event.duration': 1,
           'event.durationUnits': 'd',
           'event.title': "Dad's birthday",
           'event.location': '',
+        },
+      },
+    },
+    editAllDayEvent2: {
+      forms: {
+        fields: {
+          'event.isAllDay': true,
+          'event.startsAtHours': '',
+          'event.startsAtMinutes': '',
+          'event.startsAtMeridian': '',
+          'event.duration': 3,
+          'event.durationUnits': 'd',
+          'event.title': 'Return videotapes',
+          'event.location': 'Blockbuster',
         },
       },
     },
@@ -202,6 +218,9 @@ export const april2018loadedState = {
         events: april2018,
       },
     },
+  },
+  forms: {
+    fields: {},
   },
 }
 

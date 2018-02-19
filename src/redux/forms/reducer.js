@@ -11,6 +11,12 @@ export default function appReducer(state = initialState, action) {
         },
       }
     }
+    case 'SET_FIELDS': {
+      return {
+        ...state,
+        fields: action.payload,
+      }
+    }
     default: {
       return state
     }

@@ -17,7 +17,7 @@ export const getViewPath = path => path.substr(0, 3)
 export const getParentPath = path => path.split('/').slice(0, 4).join('/')
 
 export const pathToMoment = path => {
-  const match = matchPath(path, '/:v/:year/:month/:day?')
+  const match = matchPath(path, '/:v/:year/:month/:day?/:id?/:a?')
   return moment({
     year: match.params.year,
     month: match.params.month - 1,
@@ -86,3 +86,13 @@ export const sortForMonth = events =>
     }
     return sparse
   }, {})
+
+export const humanizeDuration = duration => {
+  if (!(duration % (60 * 24))) {
+    return { units: 'd', time: duration / (60 * 24) }
+  }
+  if (duration > 60) {
+    return { units: 'h', time: duration / 60 }
+  }
+  return { units: 'm', time: duration }
+}

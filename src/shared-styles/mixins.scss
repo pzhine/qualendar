@@ -103,6 +103,7 @@
 
 @mixin modal {
   background: #fff;
+  z-index: 200;
 
   @include tabletAndUp {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
@@ -112,6 +113,8 @@
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
     padding: 24px;
+    max-height: 100vh;
+    overflow-y: scroll;
   }
 
   @include mobile {

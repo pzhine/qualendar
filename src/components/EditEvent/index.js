@@ -33,6 +33,7 @@ const EditEvent = ({ event, fields, saveEvent, deleteEvent }) => {
       location: fields['event.location'],
     })
   }
+  const dprl = parseInt(fields['event.duration'], 10) > 1 ? 's' : ''
   return (
     <div className={styles.editEvent}>
       <div className={styles.header}>
@@ -63,17 +64,17 @@ const EditEvent = ({ event, fields, saveEvent, deleteEvent }) => {
             />
             <EnumInput
               options={[
-                { name: ':00', value: 0 },
-                { name: ':15', value: 15 },
-                { name: ':30', value: 30 },
-                { name: ':45', value: 45 },
+                { name: ':00', value: '0' },
+                { name: ':15', value: '15' },
+                { name: ':30', value: '30' },
+                { name: ':45', value: '45' },
               ]}
               field={'event.startsAtMinutes'}
               className={styles.startsAtMinutes}
             />
           </div>
           <EnumInput
-            options={[{ name: 'AM', value: 'AM' }, { name: 'PM', value: 'PM' }]}
+            options={[{ name: 'AM', value: 'am' }, { name: 'PM', value: 'pm' }]}
             field={'event.startsAtMeridian'}
           />
         </div>}
@@ -81,17 +82,21 @@ const EditEvent = ({ event, fields, saveEvent, deleteEvent }) => {
         <TextInput
           name={'Duration'}
           type={'numeric'}
-          filter={v => !v.match(/[^0-9.]/)}
+          filter={
+            fields['event.isAllDay']
+              ? v => !v.match(/[^0-9]/)
+              : v => !v.match(/[^0-9.]/)
+          }
           field={'event.duration'}
         />
         <EnumInput
           options={
             fields['event.isAllDay']
-              ? [{ name: 'days', value: 'd' }]
+              ? [{ name: `day${dprl}`, value: 'd' }]
               : [
-                  { name: 'hours', value: 'h' },
-                  { name: 'mins', value: 'm' },
-                  { name: 'days', value: 'd' },
+                  { name: `hour${dprl}`, value: 'h' },
+                  { name: `min${dprl}`, value: 'm' },
+                  { name: `day${dprl}`, value: 'd' },
                 ]
           }
           field={'event.durationUnits'}

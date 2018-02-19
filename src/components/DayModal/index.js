@@ -6,7 +6,10 @@ import actions from '../../redux/app/actions'
 import styles from './styles.scss'
 
 const DayModal = ({ months, location, children }) => {
-  const match = matchPath(location.pathname, { path: '/:v/:year/:month/:day' })
+  const match = matchPath(location.pathname, {
+    path: '/:v/:year/:month/:day',
+    exact: true,
+  })
   if (!match) {
     return null
   }

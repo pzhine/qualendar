@@ -1,6 +1,7 @@
 .nav {
   .content {
     width: 100%;
+    padding: 0 24px;
     @include center-content;
   }
 }

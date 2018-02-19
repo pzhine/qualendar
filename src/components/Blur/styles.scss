@@ -7,6 +7,9 @@
 
     &.isActive {
       filter: blur(6px);
+      &>* {
+        pointer-events: none;
+      }
     }
   }
 }

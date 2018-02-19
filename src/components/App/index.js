@@ -17,6 +17,10 @@ import ViewMonth from '../ViewMonth'
 import Grid from '../Grid'
 import GridHead from '../GridHead'
 import Redirect from '../Redirect'
+import ViewDay from '../ViewDay'
+import EditEvent from '../EditEvent'
+import DayModal from '../DayModal'
+import EventModal from '../EventModal'
 
 const onClick = () => {
   if (!store.getState().app.menuIsActive) {
@@ -37,6 +41,12 @@ const App = ({ location, transitions }) =>
               <Grid />
             </ViewMonth>
           </Blur>
+          <DayModal>
+            <ViewDay />
+          </DayModal>
+          <EventModal>
+            <EditEvent />
+          </EventModal>
         </main>
       </Redirect>
     </ScrollManager>
