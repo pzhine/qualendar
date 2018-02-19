@@ -17,25 +17,25 @@ export default {
   },
   saveEvent(eventData) {
     return async dispatch => {
-      dispatch({
-        type: 'SAVE_EVENT',
-        payload: eventData,
-      })
       if (eventData.id) {
         await api.put(`/event/${eventData.id}`, eventData)
       } else {
         await api.post(`/event`, eventData)
       }
+      dispatch({
+        type: 'SAVE_EVENT',
+        payload: eventData,
+      })
       return dispatch(push(monthPath(eventData.startsAt)))
     }
   },
   deleteEvent(eventData) {
     return async dispatch => {
+      await api.delete(`/event/${eventData.id}`)
       dispatch({
         type: 'DELETE_EVENT',
         payload: eventData,
       })
-      await api.delete(`/event/${eventData.id}`)
       return dispatch(push(monthPath(eventData.startsAt)))
     }
   },
