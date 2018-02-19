@@ -17,7 +17,10 @@ const Grid = ({ date, events }) => {
       </div>
       <div className={styles.body}>
         {weeks.map(week =>
-          <div className={styles.row} key={moment(week[0]).date()}>
+          <div
+            className={styles.row}
+            key={`${moment(week[0]).month()}.${moment(week[0]).date()}`}
+          >
             {week.map(day =>
               <GridDay
                 key={moment(day).day()}

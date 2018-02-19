@@ -1,6 +1,7 @@
 .app {
   .content {
     @include center-content;
-    padding: 0;
+    padding: 24px;
+    height: 85vh;
   }
 }

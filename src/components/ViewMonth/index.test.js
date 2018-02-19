@@ -2,6 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import moment from 'moment'
 import configureStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import MockRouter from 'react-mock-router'
 import ViewMonth from './'
@@ -13,7 +14,7 @@ import {
 
 const DummyChild = () => <div className="dummy" />
 
-const mockStore = configureStore()
+const mockStore = configureStore([thunk])
 
 const wrapper = ({ store, pathname }) =>
   mount(

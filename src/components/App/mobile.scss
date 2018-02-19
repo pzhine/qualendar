@@ -5,10 +5,19 @@ html, body {
 .app {
   font-family: $body-font;
   color: $body-color;
-  padding-top: $nav-height * 2;
+  padding-top: $nav-height;
 
   .content {
-    @include center-both;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
     width: 100%;
+  }
+
+  @include mobile {
+    .content {
+      height: calc(100vh - #{$mobile-footer-height} - #{$nav-height});
+    }
   }
 }
