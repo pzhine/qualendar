@@ -29,6 +29,18 @@ export default function appReducer(state = initialState, action) {
         },
       }
     }
+    case 'SAVE_EVENT':
+    case 'DELETE_EVENT': {
+      const queryMoment = moment(action.payload.startsAt)
+      const monthIndex = `${queryMoment.year()}.${queryMoment.month()}`
+      return {
+        ...state,
+        months: {
+          ...state.months,
+          [monthIndex]: { events: null },
+        },
+      }
+    }
     default: {
       return state
     }

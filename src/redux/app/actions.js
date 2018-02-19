@@ -1,7 +1,12 @@
 import moment from 'moment'
+import axios from 'axios'
 import { push } from 'react-router-redux'
 import { monthPath } from '../../lib/dates'
-import { april2018unsorted } from '../../../test/fixtures'
+
+const api = axios.create({
+  baseURL: '/api',
+  timeout: 10000,
+})
 
 export default {
   toggleMenuIsActive(isActive) {
@@ -16,7 +21,11 @@ export default {
         type: 'SAVE_EVENT',
         payload: eventData,
       })
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      if (eventData.id) {
+        await api.put(`/event/${eventData.id}`, eventData)
+      } else {
+        await api.post(`/event`, eventData)
+      }
       return dispatch(push(monthPath(eventData.startsAt)))
     }
   },
@@ -26,7 +35,7 @@ export default {
         type: 'DELETE_EVENT',
         payload: eventData,
       })
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      await api.delete(`/event/${eventData.id}`)
       return dispatch(push(monthPath(eventData.startsAt)))
     }
   },
@@ -36,12 +45,14 @@ export default {
         type: 'FETCH_EVENTS',
         payload: query,
       })
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      const monthMoment = moment(query.date)
+      const yearAndMonth = `${monthMoment.year()}/${monthMoment.month()}`
+      const response = (await api.get(`/month/${yearAndMonth}`)).data
       return dispatch({
         type: 'RECEIVE_EVENTS',
         payload: {
           query,
-          response: moment(query.date).month() === 3 ? april2018unsorted : [],
+          response,
         },
       })
     }

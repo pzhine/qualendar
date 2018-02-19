@@ -7,6 +7,8 @@ import thunk from 'redux-thunk'
 import EditEvent from './'
 import fixtures from '../../../test/fixtures'
 
+jest.mock('axios')
+
 const { specificDuration } = fixtures.events
 const { newEvent, editEvent } = fixtures.states
 

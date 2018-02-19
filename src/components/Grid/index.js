@@ -25,7 +25,11 @@ const Grid = ({ date, events }) => {
               <GridDay
                 key={moment(day).day()}
                 date={day}
-                events={events[moment(day).date()]}
+                events={
+                  moment(day).isSame(date, 'month')
+                    ? events[moment(day).date()]
+                    : []
+                }
                 isOffMonth={!moment(day).isSame(date, 'month')}
               />
             )}

@@ -24,11 +24,13 @@ const EditEvent = ({ event, fields, saveEvent, deleteEvent }) => {
             .hour(fields['event.startsAtHours'])
             .minute(fields['event.startsAtMinutes'])
             .valueOf(),
-      duration: {
-        m: parseFloat(fields['event.duration'], 10),
-        h: parseFloat(fields['event.duration'], 10) * 60,
-        d: parseFloat(fields['event.duration'], 10) * 60 * 24,
-      }[fields['event.durationUnits']],
+      duration: fields['event.isAllDay']
+        ? fields['event.duration']
+        : {
+            m: parseFloat(fields['event.duration'], 10),
+            h: parseFloat(fields['event.duration'], 10) * 60,
+            d: parseFloat(fields['event.duration'], 10) * 60 * 24,
+          }[fields['event.durationUnits']],
       title: fields['event.title'],
       location: fields['event.location'],
     })

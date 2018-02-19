@@ -158,7 +158,7 @@ const fixtures = {
         fields: {
           'event.isAllDay': false,
           'event.startsAtHours': '',
-          'event.startsAtMinutes': null,
+          'event.startsAtMinutes': '0',
           'event.startsAtMeridian': 'am',
           'event.duration': 1,
           'event.durationUnits': 'h',

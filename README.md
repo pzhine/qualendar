@@ -1,26 +1,7 @@
-Universal React Starter Kit
-===========================
+Qualendar
+=========
 
-A starter kit built on [kyt](https://github.com/NYTimes/kyt) by [@pzhine](https://github.com/pzhine).
-
-Includes the following:
-- ES6 Stage 3
-- Universal React App (server rendering)
-- Redux
-- React Router v4
-- Style framework: SASS, CSS Modules
-- Inline SVGs
-- Webfonts
-- Webpack with HMR
-- Common app components: App, Nav, Menu
-- Transition components: Fade
-- Utility components: Raw, ScrollManager
-- Higher order components
-  - freezeProps: hold props until a specified condition
-  - transitionProps: temporary state to hold before and after values of props
-  - lockScroll: block scroll under specified condition - useful for modals
-- Testing with Enzyme and Jest
-- Storybook for prototyping
+A Quick Calendar app
 
 Development
 -----------
