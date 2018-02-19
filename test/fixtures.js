@@ -9,7 +9,12 @@ export const dates = [
   {
     year: 2018,
     month: 3,
-    day: 19,
+    day: 24,
+  },
+  {
+    year: 2018,
+    month: 3,
+    day: 15,
   },
 ]
 
@@ -66,6 +71,42 @@ const fixtures = {
     newEvent: {
       startsAt: moment({ year: 2018, month: 3, day: 22 }).valueOf(),
     },
+    allDay3: {
+      id: 5,
+      startsAt: moment({ year: 2018, month: 3, day: 15 }).valueOf(),
+      duration: 1,
+      title: 'Tax day',
+      isAllDay: true,
+    },
+    allDay4: {
+      id: 6,
+      startsAt: moment({ year: 2018, month: 3, day: 15 }).valueOf(),
+      duration: 1,
+      title: 'Spring cleaning',
+      isAllDay: true,
+    },
+    specificDuration3: {
+      id: 7,
+      isAllDay: false,
+      startsAt: moment({
+        ...dates[2],
+        hour: 20,
+        minute: 0,
+      }).valueOf(),
+      duration: 1.25 * 60,
+      title: 'Party with John',
+    },
+    specificDuration4: {
+      id: 8,
+      isAllDay: false,
+      startsAt: moment({
+        ...dates[2],
+        hour: 20,
+        minute: 0,
+      }).valueOf(),
+      duration: 60,
+      title: 'Call mom',
+    },
   },
   states: {
     editEvent: {
@@ -118,13 +159,54 @@ const fixtures = {
   },
 }
 
+export const april2018unsorted = [
+  fixtures.events.specificDuration,
+  fixtures.events.spanDays,
+  fixtures.events.specificDuration2,
+  fixtures.events.allDay,
+  fixtures.events.allDay2,
+  fixtures.events.allDay3,
+  fixtures.events.allDay4,
+  fixtures.events.specificDuration3,
+  fixtures.events.specificDuration4,
+]
+
 export const april2018 = {
   10: [fixtures.events.specificDuration, fixtures.events.spanDays],
   13: [fixtures.events.allDay],
-  19: [fixtures.events.specificDuration2],
-  24: [fixtures.events.allDay2],
-  25: [{ ...fixtures.events.allDay2, startedOn: moment('2018-04-24').valueOf }],
-  26: [{ ...fixtures.events.allDay2, startedOn: moment('2018-04-24').valueOf }],
+  15: [
+    fixtures.events.allDay4,
+    fixtures.events.allDay3,
+    fixtures.events.specificDuration4,
+    fixtures.events.specificDuration3,
+  ],
+  24: [fixtures.events.allDay2, fixtures.events.specificDuration2],
+  25: [
+    {
+      ...fixtures.events.allDay2,
+      startedOn: moment('2018-04-24').valueOf(),
+    },
+  ],
+  26: [
+    {
+      ...fixtures.events.allDay2,
+      startedOn: moment('2018-04-24').valueOf(),
+    },
+  ],
+}
+
+export const april2018loadedState = {
+  app: {
+    months: {
+      '2018.3': {
+        events: april2018,
+      },
+    },
+  },
+}
+
+export const april2018cleanState = {
+  app: { months: {} },
 }
 
 export default fixtures

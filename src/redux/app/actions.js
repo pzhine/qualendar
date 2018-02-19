@@ -17,4 +17,10 @@ export default {
       payload: id,
     }
   },
+  fetchEvents(query) {
+    return {
+      type: 'FETCH_EVENTS',
+      payload: query,
+    }
+  },
 }

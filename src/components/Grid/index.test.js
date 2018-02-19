@@ -43,14 +43,14 @@ it('should render the correct events on a given date', () => {
 
 it('should render the multi-day event correctly', () => {
   const wrapped = wrapper(params)
-  expect(wrapped.find('GridDay').at(23).prop('events')).toEqual([
-    fixtures.events.allDay2,
-  ])
+  expect(wrapped.find('GridDay').at(23).prop('events')[0]).toEqual(
+    fixtures.events.allDay2
+  )
   expect(wrapped.find('GridDay').at(24).prop('events')).toEqual([
-    { ...fixtures.events.allDay2, startedOn: moment('2018-04-24').valueOf },
+    { ...fixtures.events.allDay2, startedOn: moment('2018-04-24').valueOf() },
   ])
   expect(wrapped.find('GridDay').at(25).prop('events')).toEqual([
-    { ...fixtures.events.allDay2, startedOn: moment('2018-04-24').valueOf },
+    { ...fixtures.events.allDay2, startedOn: moment('2018-04-24').valueOf() },
   ])
 })
 
