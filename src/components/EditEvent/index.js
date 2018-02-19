@@ -111,7 +111,7 @@ const EditEvent = ({ event, fields, saveEvent, deleteEvent }) => {
       <div className={cx(styles.inline, styles.buttons)}>
         {event.id &&
           <div className={styles.delete}>
-            <button onClick={() => deleteEvent(event.id)}>
+            <button onClick={() => deleteEvent(event)}>
               <TrashIcon />
             </button>
           </div>}

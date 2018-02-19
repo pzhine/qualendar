@@ -14,7 +14,9 @@ const ViewDay = ({ date, events }) =>
       <CloseButton />
     </div>
     <div className={styles.events}>
-      {events.map(evt => <ViewEvent event={evt} key={evt.id} />)}
+      {events
+        ? events.map(evt => <ViewEvent event={evt} key={evt.id} />)
+        : <div className={styles.noEvents}>Nothing to do yet...</div>}
     </div>
   </div>
 

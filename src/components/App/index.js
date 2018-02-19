@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 import actions from '../../redux/app/actions'
 import transitionProps from '../../hoc/transitionProps'
-import store from '../../redux/configureStore'
+import configureStore from '../../redux/configureStore'
 import { monthPath } from '../../lib/dates'
 import styles from './styles.scss'
 
@@ -22,35 +22,38 @@ import EditEvent from '../EditEvent'
 import DayModal from '../DayModal'
 import EventModal from '../EventModal'
 
-const onClick = () => {
-  if (!store.getState().app.menuIsActive) {
-    return
+const App = ({ location, transitions, history }) => {
+  const store = configureStore({ history })
+  const onClick = () => {
+    if (!store.getState().app.menuIsActive) {
+      return
+    }
+    store.dispatch(actions.toggleMenuIsActive(false))
   }
-  store.dispatch(actions.toggleMenuIsActive(false))
+  return (
+    <Provider store={store}>
+      <ScrollManager location={location}>
+        <Redirect from="/" to={monthPath(Date.now())}>
+          <main className={styles.app} onClick={onClick}>
+            <Nav />
+            <Blur when="/m/:y/:m/:d">
+              <ViewMonth className={styles.content}>
+                <GridHead />
+                <Grid />
+              </ViewMonth>
+            </Blur>
+            <DayModal>
+              <ViewDay />
+            </DayModal>
+            <EventModal>
+              <EditEvent />
+            </EventModal>
+          </main>
+        </Redirect>
+      </ScrollManager>
+    </Provider>
+  )
 }
-
-const App = ({ location, transitions }) =>
-  <Provider store={store}>
-    <ScrollManager location={location}>
-      <Redirect from="/" to={monthPath(Date.now())}>
-        <main className={styles.app} onClick={onClick}>
-          <Nav />
-          <Blur when="/m/:y/:m/:d">
-            <ViewMonth className={styles.content}>
-              <GridHead />
-              <Grid />
-            </ViewMonth>
-          </Blur>
-          <DayModal>
-            <ViewDay />
-          </DayModal>
-          <EventModal>
-            <EditEvent />
-          </EventModal>
-        </main>
-      </Redirect>
-    </ScrollManager>
-  </Provider>
 
 export default compose(
   withRouter,

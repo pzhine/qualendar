@@ -3,13 +3,14 @@ import { mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 import MockRouter from 'react-mock-router'
+import thunk from 'redux-thunk'
 import EditEvent from './'
 import fixtures from '../../../test/fixtures'
 
 const { specificDuration } = fixtures.events
 const { newEvent, editEvent } = fixtures.states
 
-const mockStore = configureStore()
+const mockStore = configureStore([thunk])
 let currentStore
 
 const wrapper = ({ event, state }) => {
@@ -66,7 +67,7 @@ it('should dispatch delete action with id', () => {
     .simulate('click')
   expect(currentStore.getActions()).toEqual([
     {
-      payload: specificDuration.id,
+      payload: specificDuration,
       type: 'DELETE_EVENT',
     },
   ])

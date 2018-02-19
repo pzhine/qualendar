@@ -6,4 +6,9 @@
   @include mobile {
     padding-bottom: $mobile-footer-height * 1.5;
   }
+
+  .noEvents {
+    padding: 24px 0;
+    color: $border-color-light;
+  }
 }

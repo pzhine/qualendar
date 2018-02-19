@@ -1,5 +1,7 @@
-import { april2018unsorted } from '../../../test/fixtures'
 import moment from 'moment'
+import { push } from 'react-router-redux'
+import { monthPath } from '../../lib/dates'
+import { april2018unsorted } from '../../../test/fixtures'
 
 export default {
   toggleMenuIsActive(isActive) {
@@ -9,15 +11,23 @@ export default {
     }
   },
   saveEvent(eventData) {
-    return {
-      type: 'SAVE_EVENT',
-      payload: eventData,
+    return async dispatch => {
+      dispatch({
+        type: 'SAVE_EVENT',
+        payload: eventData,
+      })
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      return dispatch(push(monthPath(eventData.startsAt)))
     }
   },
-  deleteEvent(id) {
-    return {
-      type: 'DELETE_EVENT',
-      payload: id,
+  deleteEvent(eventData) {
+    return async dispatch => {
+      dispatch({
+        type: 'DELETE_EVENT',
+        payload: eventData,
+      })
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      return dispatch(push(monthPath(eventData.startsAt)))
     }
   },
   fetchEvents(query) {
