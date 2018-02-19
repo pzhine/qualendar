@@ -65,6 +65,7 @@
   .header {
     display: flex;
     align-items: center;
+    padding-bottom: 6px;
 
     &>* {
       @include tabletAndUp {
@@ -77,6 +78,8 @@
 
       &:last-child {
         margin-right: 5px;
+        position: relative;
+        top: 3px;
       }
     }
   }
@@ -95,5 +98,28 @@
 
   a, button {
     pointer-events: all;
+  }
+}
+
+@mixin modal {
+  background: #fff;
+
+  @include tabletAndUp {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+    width: 640px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    padding: 24px;
+  }
+
+  @include mobile {
+    position: fixed;
+    left: 0;
+    top: $nav-height;
+    width: 100%;
+    height: calc(100vh - #{$nav-height});
+    padding: 24px 16px 0;
   }
 }

@@ -1,0 +1,12 @@
+@import '../../shared-styles/index';
+
+@include tabletAndUp {
+  .blur {
+    filter: blur(0);
+    transition: filter $transition-quick $ease;
+
+    &.isActive {
+      filter: blur(6px);
+    }
+  }
+}

@@ -16,7 +16,7 @@ const mockStore = configureStore()
 storiesOf('ViewMonth', module)
   .addDecorator(story =>
     <StaticRouter location={'/m/2018/4'}>
-      <div style={{ height: '100vh', background: '#ccc' }}>
+      <div style={{ height: '100vh', background: '#ccc', display: 'flex' }}>
         {story()}
       </div>
     </StaticRouter>

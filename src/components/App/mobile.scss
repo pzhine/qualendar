@@ -7,14 +7,6 @@ html, body {
   color: $body-color;
   padding-top: $nav-height;
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: center;
-    width: 100%;
-  }
-
   @include mobile {
     .content {
       height: calc(100vh - #{$mobile-footer-height} - #{$nav-height});

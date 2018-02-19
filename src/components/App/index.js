@@ -11,6 +11,7 @@ import styles from './styles.scss'
 
 import ScrollManager from '../ScrollManager'
 import Fade from '../Fade'
+import Blur from '../Blur'
 import Nav from '../Nav'
 import ViewMonth from '../ViewMonth'
 import Grid from '../Grid'
@@ -30,10 +31,12 @@ const App = ({ location, transitions }) =>
       <Redirect from="/" to={monthPath(Date.now())}>
         <main className={styles.app} onClick={onClick}>
           <Nav />
-          <ViewMonth className={styles.content}>
-            <GridHead />
-            <Grid />
-          </ViewMonth>
+          <Blur when="/m/:y/:m/:d">
+            <ViewMonth className={styles.content}>
+              <GridHead />
+              <Grid />
+            </ViewMonth>
+          </Blur>
         </main>
       </Redirect>
     </ScrollManager>
