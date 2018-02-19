@@ -5,6 +5,7 @@
   height: $form-input-height;
   width: 100%;
   border-bottom: 1px solid $border-color-light;
+  margin-bottom: 0.5em;
 
   input {
     position: absolute;
@@ -14,9 +15,8 @@
     width: 100%;
     font-family: $bold-font;
     font-size: $form-input-font-size;
-    line-height: $form-input-font-size;
     color: $form-input-text-color;
-    height: 1em;
+    height: $form-input-font-size;
     padding-bottom: 3px;
 
     &:focus {
