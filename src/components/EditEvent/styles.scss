@@ -84,7 +84,7 @@
   }
 
   @include mobile {
-    padding-bottom: $mobile-footer-height * 1.5;
+    padding-bottom: 24px;
 
     .buttons {
       justify-content: center;
