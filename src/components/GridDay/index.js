@@ -31,8 +31,13 @@ const GridDay = ({ events, date, isOffMonth }) => {
       >
         <MediaQuery minWidth={config.breakpoints.tablet + 1}>
           {events &&
-            events.map(e =>
-              <GridEvent key={e.id} event={e} className={styles.event} />
+            events.map((e, idx) =>
+              <GridEvent
+                key={e.id}
+                event={e}
+                className={styles.event}
+                prevEvent={events[idx - 1]}
+              />
             )}
         </MediaQuery>
       </div>

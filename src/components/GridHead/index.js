@@ -15,6 +15,7 @@ const GridHead = ({ date }) =>
       className={styles.nav}
       nextPath={monthPath(moment(date).add(1, 'month'))}
       prevPath={monthPath(moment(date).add(-1, 'month'))}
+      positionBottom
     />
     <NewEventButton date={date} />
   </div>

@@ -23,7 +23,6 @@ class ViewMonth extends Component {
     const month = monthFromState(this.nextMoment, nextProps)
     if (month && !month.events && !month.isLoading) {
       this.props.fetchEvents({ range: 'm', date: this.nextMoment.valueOf() })
-      return
     }
     if (this.currentMoment.isSame(this.nextMoment, 'month')) {
       return

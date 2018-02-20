@@ -12,6 +12,8 @@
   @include mobile {
     .date {
       text-transform: lowercase;
+      position: relative;
+      bottom: 2px;
     }
   }
 }

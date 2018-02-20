@@ -17,13 +17,17 @@ export default {
   },
   saveEvent(eventData) {
     return async dispatch => {
+      dispatch({
+        type: 'SAVE_EVENT',
+        payload: eventData,
+      })
       if (eventData.id) {
         await api.put(`/event/${eventData.id}`, eventData)
       } else {
         await api.post(`/event`, eventData)
       }
       dispatch({
-        type: 'SAVE_EVENT',
+        type: 'EVENT_SAVED',
         payload: eventData,
       })
       return dispatch(push(monthPath(eventData.startsAt)))
@@ -31,9 +35,13 @@ export default {
   },
   deleteEvent(eventData) {
     return async dispatch => {
-      await api.delete(`/event/${eventData.id}`)
       dispatch({
         type: 'DELETE_EVENT',
+        payload: eventData,
+      })
+      await api.delete(`/event/${eventData.id}`)
+      dispatch({
+        type: 'EVENT_DELETED',
         payload: eventData,
       })
       return dispatch(push(monthPath(eventData.startsAt)))

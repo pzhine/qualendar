@@ -2,15 +2,11 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { compose } from 'redux'
 import actions from '../../redux/app/actions'
-import transitionProps from '../../hoc/transitionProps'
 import configureStore from '../../redux/configureStore'
 import { monthPath } from '../../lib/dates'
 import styles from './styles.scss'
 
-import ScrollManager from '../ScrollManager'
-import Fade from '../Fade'
 import Blur from '../Blur'
 import Nav from '../Nav'
 import ViewMonth from '../ViewMonth'
@@ -22,7 +18,7 @@ import EditEvent from '../EditEvent'
 import DayModal from '../DayModal'
 import EventModal from '../EventModal'
 
-const App = ({ location, transitions, history }) => {
+const App = ({ history }) => {
   const store = configureStore({ history })
   const onClick = () => {
     if (!store.getState().app.menuIsActive) {
@@ -32,37 +28,25 @@ const App = ({ location, transitions, history }) => {
   }
   return (
     <Provider store={store}>
-      <ScrollManager location={location}>
-        <Redirect from="/" to={monthPath(Date.now())}>
-          <main className={styles.app} onClick={onClick}>
-            <Nav />
-            <Blur when="/m/:y/:m/:d">
-              <ViewMonth className={styles.content}>
-                <GridHead />
-                <Grid />
-              </ViewMonth>
-            </Blur>
-            <DayModal>
-              <ViewDay />
-            </DayModal>
-            <EventModal>
-              <EditEvent />
-            </EventModal>
-          </main>
-        </Redirect>
-      </ScrollManager>
+      <Redirect from="/" to={monthPath(Date.now())}>
+        <main className={styles.app} onClick={onClick}>
+          <Nav />
+          <Blur when="/m/:y/:m/:d" activeClassName={styles.monthMask}>
+            <ViewMonth className={styles.content}>
+              <GridHead />
+              <Grid />
+            </ViewMonth>
+          </Blur>
+          <DayModal>
+            <ViewDay />
+          </DayModal>
+          <EventModal>
+            <EditEvent />
+          </EventModal>
+        </main>
+      </Redirect>
     </Provider>
   )
 }
 
-export default compose(
-  withRouter,
-  transitionProps({
-    propsToTransition: () => ({
-      location: {
-        duration: 300,
-        compare: ({ pre, post }) => pre.pathname === post.pathname,
-      },
-    }),
-  })
-)(App)
+export default withRouter(App)

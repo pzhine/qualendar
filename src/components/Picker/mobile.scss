@@ -15,20 +15,32 @@
   }
 
   @include mobile {
-    position: fixed;
-    z-index: 100;
-    width: 100%;
-    padding: 0 24px;
-    left: 0;
-    bottom: 0;
-    height: $mobile-footer-height;
-    background: $mobile-footer-background;
-    justify-content: space-between;
-    align-items: center;
-    pointer-events: none;
+    &.positionBottom {
+      position: fixed;
+      z-index: 150;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      height: $mobile-footer-height;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
 
-    a {
-      pointer-events: all;
+      a {
+        pointer-events: all;
+        width: 70px;
+        height: 40px;
+        @include center-both;
+      }
+    }
+    &.positionTop {
+      margin-right: 20px;
+
+      a {
+        width: 40px;
+        height: 40px;
+        @include center-both;
+      }
     }
   }
 }

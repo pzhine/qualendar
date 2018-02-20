@@ -4,8 +4,13 @@ import cx from 'classnames'
 import styles from './styles.scss'
 import BackIcon from '../../icons/back.svg'
 
-const Picker = ({ nextPath, prevPath, className }) =>
-  <div className={cx(styles.picker, className)}>
+const Picker = ({ nextPath, prevPath, className, positionBottom }) =>
+  <div
+    className={cx(styles.picker, className, {
+      [styles.positionBottom]: positionBottom,
+      [styles.positionTop]: !positionBottom,
+    })}
+  >
     <Link to={prevPath} className={styles.prev}>
       <BackIcon />
     </Link>

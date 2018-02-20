@@ -9,9 +9,9 @@ import CloseButton from '../CloseButton'
 const ViewDay = ({ date, events }) =>
   <div className={styles.viewDay}>
     <div className={styles.header}>
-      <DatePicker date={date} />
+      <DatePicker date={date} pickerIsOnBottom />
       <NewEventButton date={date} />
-      <CloseButton />
+      <CloseButton className={styles.closeButton} />
     </div>
     <div className={styles.events}>
       {events

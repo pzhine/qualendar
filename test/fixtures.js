@@ -200,12 +200,14 @@ export const april2018 = {
   25: [
     {
       ...fixtures.events.allDay2,
+      startsAt: moment('2018-04-25').valueOf(),
       startedOn: moment('2018-04-24').valueOf(),
     },
   ],
   26: [
     {
       ...fixtures.events.allDay2,
+      startsAt: moment('2018-04-26').valueOf(),
       startedOn: moment('2018-04-24').valueOf(),
     },
   ],

@@ -7,7 +7,7 @@ import config from '../../content/config.json'
 import { datePath } from '../../lib/dates'
 import Picker from '../Picker'
 
-const DatePicker = ({ date, location }) => {
+const DatePicker = ({ date, location, pickerIsOnBottom }) => {
   const m = moment(date)
   const nextPath = location.pathname.replace(
     datePath(m),
@@ -29,7 +29,12 @@ const DatePicker = ({ date, location }) => {
           {m.format('ddd')}, {m.format('MMM')} {m.format('D')}
         </span>
       </MediaQuery>
-      <Picker className={styles.nav} prevPath={prevPath} nextPath={nextPath} />
+      <Picker
+        className={styles.nav}
+        prevPath={prevPath}
+        nextPath={nextPath}
+        positionBottom={pickerIsOnBottom}
+      />
     </div>
   )
 }

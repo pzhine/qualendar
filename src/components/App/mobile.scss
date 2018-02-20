@@ -8,8 +8,11 @@ html, body {
   padding-top: $nav-height;
 
   @include mobile {
-    .content {
+    .content, .monthMask {
       height: calc(100vh - #{$mobile-footer-height} - #{$nav-height});
+    }
+    .monthMask {
+      overflow: hidden;
     }
   }
 }

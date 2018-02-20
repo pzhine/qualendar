@@ -2,12 +2,14 @@ import React from 'react'
 import cx from 'classnames'
 import styles from './styles.scss'
 
-const GridEvent = ({ event, className }) =>
+const spansMultiple = e => e.isAllDay && e.duration > 1 && !e.startedOn
+
+const GridEvent = ({ event, className, prevEvent }) =>
   <div
     className={cx(className, styles.gridEvent, {
       [styles.isAllDay]: event.isAllDay,
-      [styles.spansMultiple]:
-        event.isAllDay && event.duration > 1 && !event.startedOn,
+      [styles.spansMultiple]: spansMultiple(event),
+      [styles.needsSpacer]: prevEvent && spansMultiple(prevEvent),
     })}
     style={
       event.isAllDay && event.duration > 1 && !event.startedOn

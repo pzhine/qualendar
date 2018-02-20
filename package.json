@@ -32,7 +32,8 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "uglifyjs-webpack-plugin": "^1.1.6",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "viewport-units-buggyfill": "^0.6.2"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.13",

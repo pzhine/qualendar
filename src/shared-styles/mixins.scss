@@ -77,35 +77,41 @@
       }
 
       &:last-child {
-        margin-right: 5px;
+        margin-right: 0;
         position: relative;
-        top: 3px;
+        top: 1px;
+        height: 30px;
+        width: 30px;
+        @include center-both;
       }
     }
   }
 }
 
-@mixin mobile-modal-footer {
+@mixin mobile-modal-footer($z:0) {
   position: fixed;
-  z-index: 100;
-  @include center-both;
+  z-index: 100 + $z;
+  display: flex;
+  align-items: center;
   height: $mobile-footer-height;
   bottom: 0;
   left: 0;
   right: 0;
   margin: 0 auto;
   pointer-events: none;
+  background: $body-background;
 
   a, button {
     pointer-events: all;
+    z-index: 150 + $z;
   }
 }
 
 @mixin modal {
   background: #fff;
-  z-index: 200;
 
   @include tabletAndUp {
+    z-index: 200;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
     width: 640px;
     position: absolute;
@@ -119,12 +125,13 @@
   }
 
   @include mobile {
-    position: fixed;
+    z-index: 240;
+    position: absolute;
+    top: 0;
     left: 0;
-    top: $nav-height;
+    margin-top: $nav-height;
     width: 100%;
-    height: calc(100vh - #{$nav-height} - #{$mobile-footer-height});
-    padding: 24px 16px 0;
-    overflow-y: scroll;
+    padding: 24px 16px $mobile-footer-height;
+    min-height: calc(100vh - #{$nav-height} - #{$mobile-footer-height});
   }
 }

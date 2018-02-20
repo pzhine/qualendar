@@ -77,10 +77,15 @@ export const sortForMonth = events =>
     sparse[dt].sort(eventCompare)
     if (evt.isAllDay && evt.duration > 1) {
       for (let i = 1; i < evt.duration; i += 1) {
-        const edt = moment(evt.startsAt).add(i, 'day').date()
+        const emoment = moment(evt.startsAt).add(i, 'day')
+        const edt = emoment.date()
         sparse[edt] = [
           ...(sparse[edt] || []),
-          { ...evt, startedOn: evt.startsAt },
+          {
+            ...evt,
+            startsAt: emoment.startOf('day').valueOf(),
+            startedOn: evt.startsAt,
+          },
         ]
       }
     }

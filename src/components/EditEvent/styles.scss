@@ -88,12 +88,17 @@
     padding-bottom: 24px;
 
     .buttons {
-      justify-content: center;
+      @include mobile-modal-footer(50);
     }
 
-    .save {
-      @include mobile-modal-footer;
-      z-index: 150;
+    .save button {
+      align-self: flex-end;
+      margin-right: 24px;
+    }
+
+    .delete button {
+      align-self: flex-start;
+      margin-left: 24px;
     }
   }
 }

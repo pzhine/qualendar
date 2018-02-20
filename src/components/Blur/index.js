@@ -3,10 +3,11 @@ import { matchPath, withRouter } from 'react-router'
 import cx from 'classnames'
 import styles from './styles.scss'
 
-const Blur = ({ children, when, location }) =>
+const Blur = ({ children, when, location, activeClassName }) =>
   <div
     className={cx(styles.blur, {
       [styles.isActive]: matchPath(location.pathname, { path: when }),
+      [activeClassName]: matchPath(location.pathname, { path: when }),
     })}
   >
     {children}

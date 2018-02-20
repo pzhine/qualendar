@@ -1,9 +1,12 @@
 import 'babel-polyfill'
 import 'raf/polyfill'
+import viewportUnitsBuggyfill from 'viewport-units-buggyfill'
 import React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import Root from './Root'
+
+viewportUnitsBuggyfill.init()
 
 const root = document.querySelector('#root')
 

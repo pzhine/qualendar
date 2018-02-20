@@ -14,7 +14,7 @@ const ViewEvent = ({ event, location }) => {
     : `${endsAt.format('MMM D')} at ${endsAt.format('h:mm a')}`
   const editPath = location.pathname.replace(
     datePath(event.startsAt),
-    `${datePath(event.startsAt)}/${event.id}/edit`
+    `${datePath(event.startedOn || event.startsAt)}/${event.id}/edit`
   )
   return (
     <div className={styles.viewEvent}>
