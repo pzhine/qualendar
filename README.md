@@ -13,7 +13,7 @@ yarn install
 ```
 yarn test
 ```
-3. Run the development server (http://localhost:3000)
+3. Run the development server (http://localhost:3030)
 ```
 yarn run dev
 ```

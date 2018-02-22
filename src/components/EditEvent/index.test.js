@@ -7,8 +7,8 @@ import thunk from 'redux-thunk'
 import EditEvent from './'
 import fixtures from '../../../test/fixtures'
 
-const { specificDuration } = fixtures.events
-const { newEvent, editEvent } = fixtures.states
+const { specificDuration, specificDuration3 } = fixtures.events
+const { newEvent, editEvent, editEvent3 } = fixtures.states
 
 const mockStore = configureStore([thunk])
 let currentStore
@@ -46,12 +46,12 @@ it('should render "Modify Event" subtitle for existing event', () => {
 })
 
 it('should dispatch save action with event data attached', () => {
-  wrapper({ event: specificDuration, state: editEvent })
+  wrapper({ event: specificDuration3, state: editEvent3 })
     .find('.save button')
     .simulate('click')
   expect(currentStore.getActions()).toEqual([
     {
-      payload: specificDuration,
+      payload: specificDuration3,
       type: 'SAVE_EVENT',
     },
   ])

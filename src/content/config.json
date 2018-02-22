@@ -4,5 +4,9 @@
   "breakpoints": {
     "desktop": 1025,
     "tablet": 600
+  },
+  "apiEndpoint": {
+    "dev": "http://localhost:3000",
+    "prod": "http://qualendar-api.herokuapp.com"
   }
 }

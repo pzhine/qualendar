@@ -125,6 +125,19 @@ const fixtures = {
         },
       },
     },
+    editEvent3: {
+      forms: {
+        fields: {
+          'event.isAllDay': false,
+          'event.startsAtHours': 8,
+          'event.startsAtMinutes': 0,
+          'event.startsAtMeridian': 'pm',
+          'event.duration': 1.25,
+          'event.durationUnits': 'h',
+          'event.title': 'Party with John',
+        },
+      },
+    },
     editAllDayEvent: {
       forms: {
         fields: {

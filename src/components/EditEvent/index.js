@@ -21,7 +21,10 @@ const EditEvent = ({ event, fields, saveEvent, deleteEvent }) => {
       startsAt: fields['event.isAllDay']
         ? event.startsAt
         : moment(event.startsAt)
-            .hour(fields['event.startsAtHours'])
+            .hour(
+              parseInt(fields['event.startsAtHours'], 10) +
+                (fields['event.startsAtMeridian'] === 'am' ? 0 : 12)
+            )
             .minute(fields['event.startsAtMinutes'])
             .valueOf(),
       duration: fields['event.isAllDay']
@@ -32,7 +35,11 @@ const EditEvent = ({ event, fields, saveEvent, deleteEvent }) => {
             d: parseFloat(fields['event.duration'], 10) * 60 * 24,
           }[fields['event.durationUnits']],
       title: fields['event.title'],
-      location: fields['event.location'],
+      ...(fields['event.location']
+        ? {
+            location: fields['event.location'],
+          }
+        : {}),
     })
   }
   const dprl = parseInt(fields['event.duration'], 10) > 1 ? 's' : ''

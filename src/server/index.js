@@ -5,13 +5,10 @@ import path from 'path'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router'
-import cors from 'cors'
-import bodyParser from 'body-parser'
 import template from './template'
 import config from '../content/config.json'
 import kytConfig from '../../kyt.config'
 import App from '../components/App'
-import api from './api'
 
 const clientAssets = require(KYT.ASSETS_MANIFEST) // eslint-disable-line import/no-dynamic-require
 const port = process.env.PORT || parseInt(KYT.SERVER_PORT, 10)
@@ -24,7 +21,7 @@ const getClientAsset = ({ name, req }) => {
   if (process.env.NODE_ENV === 'development') {
     return clientAssets[name].replace(
       kytConfig.clientURL,
-      `http://${req.hostname}:3001`
+      `http://${req.hostname}:3031`
     )
   }
   return clientAssets[name]
@@ -38,11 +35,6 @@ server.use(compression())
 
 // Setup the public directory so that we can server static assets.
 server.use(express.static(path.join(process.cwd(), KYT.PUBLIC_DIR)))
-
-// API
-server.use(bodyParser.json())
-server.use(bodyParser.urlencoded({ extended: true }))
-server.use('/api', cors(), api)
 
 // Setup server side routing.
 server.get('*', (req, res) => {

@@ -5,8 +5,8 @@ const path = require('path')
 module.exports = {
   reactHotLoader: true,
   debug: false,
-  serverURL: 'http://0.0.0.0:3000',
-  clientURL: 'http://0.0.0.0:3001',
+  serverURL: 'http://0.0.0.0:3030',
+  clientURL: 'http://0.0.0.0:3031',
   modifyWebpackConfig: baseConfig => {
     const appConfig = Object.assign({}, baseConfig)
 
